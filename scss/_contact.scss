@@ -48,7 +48,7 @@
     .line2 {
         opacity: 0;
     }
-    &:hover, &:focus { 
+    &:hover { 
         animation: eyeroll 6s linear infinite;
         -webkit-animation: eyeroll 6s linear infinite
     }
