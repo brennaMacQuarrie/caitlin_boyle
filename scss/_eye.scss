@@ -1,0 +1,41 @@
+.eye {
+    border: 20px solid rgba(255, 255, 255, 0.3);
+    width: 80px;
+    height: 80px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 70px 12px;
+    transform: rotate(44deg); 
+    z-index: 999;
+    position: relative;
+    cursor: pointer;
+    transition: 5s border-color; 
+    .moon {
+        background-color: transparent;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: inset 22px 5px $blue, inset 20px 0px 1px 7px $blue;
+        -moz-box-shadow: inset 20px 0px $blue, inset 20px 0px 1px 1px $blue;  
+        transform: rotate(-45deg);   
+        animation: eyeroll 3s linear infinite;
+        -webkit-animatioin: eyeroll 3s linear infinite
+    }
+}
+
+.eye.set {
+    border: 20px solid $gold;
+}
+
+
+@keyframes eyeroll {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+  

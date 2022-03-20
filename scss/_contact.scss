@@ -1,0 +1,53 @@
+
+.contact-info {
+    opacity: 0;
+    position: absolute;
+    top: 30px;
+    left: -60px;
+    margin: 0 auto;
+    padding: 15px;
+    background: $blue;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 150%;
+    transition: 2s all;
+}
+
+.contact {
+    // height: 40px;
+    width: 40px;
+    position: relative;
+    .line1, .line2, .line3 {
+        margin: 4px;
+        right: 0;
+        height: 3px;
+        width: 32px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        transition: 5s background-color;
+    }
+    .line2 {
+        width: 20px;
+        transition: 2s opacity;
+
+    }
+    .line3 {
+        width: 25px;
+        transition: 2s opacity;
+
+    }
+    &:hover {
+        .contact-info {
+            opacity: 1;
+            top: 40px;
+        }
+        .line2, .line3 {
+            opacity: 0
+        }
+    }
+}
+
+.line1.set, .line2.set, .line3.set {
+    background-color: $blue;
+}
