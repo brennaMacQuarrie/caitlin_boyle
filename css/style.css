@@ -264,7 +264,8 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    text-align: center; }
 
 h1 {
   color: rgba(255, 255, 255, 0.3);
@@ -342,15 +343,26 @@ header nav {
     transition: 5s background-color; }
   .contact .line2 {
     width: 20px;
-    transition: 2s opacity; }
+    transition: 2s opacity;
+    transition: 5s background-color; }
   .contact .line3 {
     width: 25px;
-    transition: 2s opacity; }
-  .contact:hover .contact-info {
+    transition: 2s opacity;
+    transition: 5s background-color; }
+  .contact:hover .contact-info, .contact:focus .contact-info, .contact:active .contact-info {
     opacity: 1;
     top: 40px; }
-  .contact:hover .line2, .contact:hover .line3 {
+  .contact:hover .line2, .contact:hover .line3, .contact:focus .line2, .contact:focus .line3, .contact:active .line2, .contact:active .line3 {
     opacity: 0; }
 
 .line1.set, .line2.set, .line3.set {
   background-color: #303847; }
+
+@media (max-width: 530px) {
+  header nav div {
+    width: 70%;
+    margin-top: 10px; }
+  section {
+    padding-top: calc(30vh - 50px); }
+    section .content {
+      min-height: 35%; } }

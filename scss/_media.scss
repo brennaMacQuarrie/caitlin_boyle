@@ -1,0 +1,12 @@
+@media (max-width: 530px) {
+    header nav div {
+        width: 70%;
+        margin-top: 10px;
+    }
+    section {
+        padding-top: calc(30vh - 50px);
+        .content {
+            min-height: 35%;
+        }
+    }
+}
