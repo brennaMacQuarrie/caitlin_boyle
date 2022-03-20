@@ -1,9 +1,6 @@
 .contact-container {
     position: relative;
-    &:hover ~ .eye, &:focus ~ .eye { border: 20px solid $blue }
 }
-
-
 
 .contact {
     width: 50px;
@@ -11,17 +8,17 @@
     margin: 0 auto;
     cursor: pointer;
     position: relative;
-    transition: background-color 5s, scale 1.5s;
     &:hover, &:focus {
-       div {transform: scale(1.2)}
+        .line {transform: scaleX(1.2)}
     }
-    div {
+    .line {
         top: 45%;
         left: 25%;
         width: 50%;
         height: 2px;
-        transition: all 0.8s;
         position: absolute;
+        background-color: rgba(255, 255, 255, 0.3);
+        transition: rotate 0.8s, background-color 5s, transform 0.8s;
     }
     .line1 {
         top: 25%;
@@ -83,6 +80,6 @@
     top: 40px;
 }
 
-.line1.set, .line2.set, .line3.set {
+.line.set {
     background-color: $blue;
 }

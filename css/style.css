@@ -294,7 +294,6 @@ header nav {
   transform: rotate(44deg);
   z-index: 999;
   position: relative;
-  cursor: pointer;
   transition: 5s border-color; }
   .eye .moon {
     background-color: transparent;
@@ -318,25 +317,23 @@ header nav {
 
 .contact-container {
   position: relative; }
-  .contact-container:hover ~ .eye, .contact-container:focus ~ .eye {
-    border: 20px solid #303847; }
 
 .contact {
   width: 50px;
   height: 50px;
   margin: 0 auto;
   cursor: pointer;
-  position: relative;
-  transition: background-color 5s, scale 1.5s; }
-  .contact:hover div, .contact:focus div {
-    transform: scale(1.2); }
-  .contact div {
+  position: relative; }
+  .contact:hover .line, .contact:focus .line {
+    transform: scaleX(1.2); }
+  .contact .line {
     top: 45%;
     left: 25%;
     width: 50%;
     height: 2px;
-    transition: all 0.8s;
-    position: absolute; }
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: rotate 0.8s, background-color 5s, transform 0.8s; }
   .contact .line1 {
     top: 25%; }
   .contact .line2 {
@@ -387,7 +384,7 @@ header nav {
   opacity: 1;
   top: 40px; }
 
-.line1.set, .line2.set, .line3.set {
+.line.set {
   background-color: #303847; }
 
 @media (max-width: 530px) {
