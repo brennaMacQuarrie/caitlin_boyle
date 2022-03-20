@@ -331,6 +331,7 @@ header nav {
   transition: 2s all; }
 
 .contact {
+  height: 40px;
   width: 40px;
   position: relative; }
   .contact .line1, .contact .line2, .contact .line3 {
