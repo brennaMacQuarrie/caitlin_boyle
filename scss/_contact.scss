@@ -12,6 +12,9 @@
     text-align: center;
     line-height: 150%;
     transition: 2s all;
+    >*, p {
+        color: white
+    }
 }
 
 .contact {
