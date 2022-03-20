@@ -1,9 +1,11 @@
 function changeColor() {
     document.querySelector('.coming-soon').classList.add('set')
     document.querySelector('.eye').classList.add('set')
-    document.querySelector('.line1').classList.add('set')
-    document.querySelector('.line2').classList.add('set')
-    document.querySelector('.line3').classList.add('set')    
+
+    const lines = document.querySelectorAll('.line')
+    for (const line of lines) {
+        line.classList.add('set')
+    }
 }
 
 document.onreadystatechange = function() {
@@ -18,10 +20,14 @@ document.onreadystatechange = function() {
     //     document.querySelector(
     //       "body").style.visibility = "visible";
     // }
-    document.querySelector('.contact-info').classList.remove('hidden')
+    // document.getElementById('contact-info').classList.remove('hidden')
     setTimeout(changeColor, 700)
-};
+}
 
+document.getElementById('open-contact-card').onclick = function() {
+    document.getElementById('contact-card').classList.toggle('open')
+    document.getElementById('open-contact-card').classList.toggle('open')
+}
 
 
   

@@ -256,11 +256,11 @@ section {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  padding-top: calc(40vh - 50px);
+  padding-top: calc(30vh - 20px);
   background-color: transparent; }
   section .content {
     width: 50%;
-    height: 30%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -305,7 +305,7 @@ header nav {
     -moz-box-shadow: inset 20px 0px #303847, inset 20px 0px 1px 1px #303847;
     transform: rotate(-45deg);
     animation: eyeroll 3s linear infinite;
-    -webkit-animatioin: eyeroll 3s linear infinite; }
+    -webkit-animation: eyeroll 3s linear infinite; }
 
 .eye.set {
   border: 20px solid #CFAC3F; }
@@ -316,45 +316,76 @@ header nav {
   100% {
     transform: rotate(360deg); } }
 
-.contact-info {
-  opacity: 0;
-  position: absolute;
-  top: 30px;
-  left: -60px;
+.contact-container {
+  position: relative; }
+  .contact-container:hover ~ .eye, .contact-container:focus ~ .eye {
+    border: 20px solid #303847; }
+
+.contact {
+  width: 50px;
+  height: 50px;
   margin: 0 auto;
-  padding: 15px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 5s, scale 1.5s; }
+  .contact:hover div, .contact:focus div {
+    transform: scale(1.2); }
+  .contact div {
+    top: 45%;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    transition: all 0.8s;
+    position: absolute; }
+  .contact .line1 {
+    top: 25%; }
+  .contact .line2 {
+    width: 40%; }
+  .contact .line3 {
+    top: 65%;
+    width: 45%; }
+
+.contact.open .line1 {
+  transform: rotate(45deg);
+  top: 45%;
+  left: 25%; }
+
+.contact.open .line3 {
+  transform: rotate(-45deg);
+  top: 45%;
+  left: 25%;
+  width: 50%; }
+
+.contact.open .line2 {
+  opacity: 0; }
+
+.contact.open:hover, .contact.open:focus {
+  animation: eyeroll 6s linear infinite;
+  -webkit-animation: eyeroll 6s linear infinite; }
+
+#contact-card {
+  opacity: 0;
+  position: relative;
+  top: 60px;
+  margin: 0 auto;
+  padding: 20px 25px;
   background: #303847;
   color: white;
   border-radius: 5px;
   text-align: center;
   line-height: 150%;
   transition: 2s all; }
+  #contact-card a {
+    cursor: pointer; }
+  #contact-card a[href^="tel"], #contact-card a[href^="mailto"] {
+    color: white;
+    text-decoration: none; }
+    #contact-card a[href^="tel"]:hover, #contact-card a[href^="tel"]:focus, #contact-card a[href^="mailto"]:hover, #contact-card a[href^="mailto"]:focus {
+      color: #CFAC3F; }
 
-.contact {
-  height: 40px;
-  width: 40px;
-  position: relative; }
-  .contact .line1, .contact .line2, .contact .line3 {
-    margin: 4px;
-    right: 0;
-    height: 3px;
-    width: 32px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    transition: 5s background-color; }
-  .contact .line2 {
-    width: 20px;
-    transition: 2s opacity;
-    transition: 5s background-color; }
-  .contact .line3 {
-    width: 25px;
-    transition: 2s opacity;
-    transition: 5s background-color; }
-  .contact:hover .contact-info, .contact:focus .contact-info, .contact:active .contact-info {
-    opacity: 1;
-    top: 40px; }
-  .contact:hover .line2, .contact:hover .line3, .contact:focus .line2, .contact:focus .line3, .contact:active .line2, .contact:active .line3 {
-    opacity: 0; }
+#contact-card.open {
+  opacity: 1;
+  top: 40px; }
 
 .line1.set, .line2.set, .line3.set {
   background-color: #303847; }
@@ -366,4 +397,4 @@ header nav {
   section {
     padding-top: calc(30vh - 50px); }
     section .content {
-      min-height: 35%; } }
+      height: 50%; } }

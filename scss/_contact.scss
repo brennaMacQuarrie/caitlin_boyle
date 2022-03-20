@@ -1,56 +1,86 @@
+.contact-container {
+    position: relative;
+    &:hover ~ .eye, &:focus ~ .eye { border: 20px solid $blue }
+}
 
-.contact-info {
-    opacity: 0;
-    position: absolute;
-    top: 30px;
-    left: -60px;
+
+
+.contact {
+    width: 50px;
+    height: 50px;
     margin: 0 auto;
-    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 5s, scale 1.5s;
+    &:hover, &:focus {
+       div {transform: scale(1.2)}
+    }
+    div {
+        top: 45%;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        transition: all 0.8s;
+        position: absolute;
+    }
+    .line1 {
+        top: 25%;
+    }
+    .line2 {
+        width: 40%;
+    }
+    .line3 {
+        top: 65%;
+        width: 45%
+    }
+}
+
+
+.contact.open {
+    .line1 {
+        transform: rotate(45deg);
+        top: 45%;
+        left: 25%;
+    }
+    .line3 {
+        transform: rotate(-45deg);
+        top: 45%;
+        left: 25%;
+        width: 50%;
+    }
+    .line2 {
+        opacity: 0;
+    }
+    &:hover, &:focus { 
+        animation: eyeroll 6s linear infinite;
+        -webkit-animation: eyeroll 6s linear infinite
+    }
+}
+
+
+#contact-card {
+    opacity: 0;
+    position: relative;
+    top: 60px;
+    margin: 0 auto;
+    padding: 20px 25px;
     background: $blue;
     color: white;
     border-radius: 5px;
     text-align: center;
     line-height: 150%;
     transition: 2s all;
-    >*, p {
-        color: white
+    a { cursor: pointer; }
+    a[href^="tel"], a[href^="mailto"] {
+        color: white;
+        text-decoration: none; 
+        &:hover, &:focus { color: $gold }
     }
 }
 
-.contact {
-    height: 40px;
-    width: 40px;
-    position: relative;
-    .line1, .line2, .line3 {
-        margin: 4px;
-        right: 0;
-        height: 3px;
-        width: 32px;
-        background-color: rgba(255, 255, 255, 0.3);
-        border-radius: 10px;
-        transition: 5s background-color;
-    }
-    .line2 {
-        width: 20px;
-        transition: 2s opacity;
-        transition: 5s background-color;
-
-    }
-    .line3 {
-        width: 25px;
-        transition: 2s opacity;
-        transition: 5s background-color;
-
-    }
-    &:hover, &:focus, &:active {
-        .contact-info {
-            opacity: 1;
-            top: 40px;
-        }
-        .line2, .line3 {
-            opacity: 0
-        }
-    }
+#contact-card.open {
+    opacity: 1;
+    top: 40px;
 }
 
 .line1.set, .line2.set, .line3.set {
