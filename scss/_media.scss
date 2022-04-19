@@ -2,9 +2,13 @@
     header nav {
         width: 100vw;
         div.logo img {
-        width: 70%;
-        margin: 8px auto;
-    }}
+            width: 50%;
+            margin: 8px auto;
+        }
+    }
+    .contact.open:hover .line {
+        background-color: $blue;
+    }
     section {
         padding-top: calc(40vh - 50px);
         .content {
@@ -12,6 +16,11 @@
         }
     }
     #modal .text {
-        width: 80%;
+        h3 { font-size: 28px; }
+        p span { font-size: 14px; }
+        a { font-size: 12px; }
+        width: 75%;
+        padding: 40px 20px;
+        height: auto;
     }
 }

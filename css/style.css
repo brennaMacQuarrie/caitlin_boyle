@@ -446,11 +446,21 @@ nav .contact {
   header nav {
     width: 100vw; }
     header nav div.logo img {
-      width: 70%;
+      width: 50%;
       margin: 8px auto; }
+  .contact.open:hover .line {
+    background-color: #303847; }
   section {
     padding-top: calc(40vh - 50px); }
     section .content {
       height: 50%; }
   #modal .text {
-    width: 80%; } }
+    width: 75%;
+    padding: 40px 20px;
+    height: auto; }
+    #modal .text h3 {
+      font-size: 28px; }
+    #modal .text p span {
+      font-size: 14px; }
+    #modal .text a {
+      font-size: 12px; } }
