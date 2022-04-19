@@ -1,5 +1,6 @@
 @media (max-width: 530px) {
     header nav {
+        width: 100vw;
         div.logo img {
         width: 70%;
         margin: 8px auto;
@@ -9,5 +10,8 @@
         .content {
             height: 50%;
         }
+    }
+    #modal .text {
+        width: 80%;
     }
 }

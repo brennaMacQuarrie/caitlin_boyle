@@ -443,10 +443,14 @@ nav .contact {
   background-color: #CFAC3F; }
 
 @media (max-width: 530px) {
-  header nav div.logo img {
-    width: 70%;
-    margin: 8px auto; }
+  header nav {
+    width: 100vw; }
+    header nav div.logo img {
+      width: 70%;
+      margin: 8px auto; }
   section {
     padding-top: calc(40vh - 50px); }
     section .content {
-      height: 50%; } }
+      height: 50%; }
+  #modal .text {
+    width: 80%; } }
