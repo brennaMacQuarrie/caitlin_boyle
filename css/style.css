@@ -444,13 +444,14 @@ nav .contact {
 
 @media (max-width: 530px) {
   header nav {
-    width: 100vw;
     margin-top: 5px; }
     header nav div.contact, header nav div.eye-target {
       height: 35px;
-      width: 35px; }
+      width: 35px;
+      min-width: 35px; }
     header nav div.logo img {
       width: 50%;
+      min-width: 150px;
       margin: 5px auto; }
   .contact.open:hover .line {
     background-color: #303847; }
@@ -463,8 +464,4 @@ nav .contact {
     padding: 40px 20px;
     height: auto; }
     #modal .text h3 {
-      font-size: 28px; }
-    #modal .text p span {
-      font-size: 14px; }
-    #modal .text a {
-      font-size: 12px; } }
+      font-size: 28px; } }

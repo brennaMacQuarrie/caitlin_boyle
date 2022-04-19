@@ -1,13 +1,14 @@
 @media (max-width: 530px) {
     header nav {
-        width: 100vw;
         margin-top: 5px;
         div.contact, div.eye-target {
             height: 35px;
             width: 35px;
+            min-width: 35px;
         }
         div.logo img {
             width: 50%;
+            min-width: 150px;
             margin: 5px auto;
         }
     }
@@ -22,8 +23,6 @@
     }
     #modal .text {
         h3 { font-size: 28px; }
-        p span { font-size: 14px; }
-        a { font-size: 12px; }
         width: 75%;
         padding: 40px 20px;
         height: auto;
