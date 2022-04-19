@@ -1,6 +1,5 @@
 #gallery {
     display: none;
-    z-index: 99;
     height: 100vh;
 
     .row {
@@ -22,5 +21,7 @@
 
 #gallery.open {
     display: block;
+    z-index: 99;
+
     img { top: 0; }
 }

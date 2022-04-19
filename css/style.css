@@ -449,7 +449,6 @@ header nav {
 
 #gallery {
   display: none;
-  z-index: 99;
   height: 100vh; }
   #gallery .row {
     display: flex;
@@ -465,7 +464,8 @@ header nav {
         vertical-align: middle; }
 
 #gallery.open {
-  display: block; }
+  display: block;
+  z-index: 99; }
   #gallery.open img {
     top: 0; }
 
