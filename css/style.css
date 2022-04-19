@@ -444,10 +444,14 @@ nav .contact {
 
 @media (max-width: 530px) {
   header nav {
-    width: 100vw; }
+    width: 100vw;
+    margin-top: 5px; }
+    header nav div.contact, header nav div.eye-target {
+      height: 35px;
+      width: 35px; }
     header nav div.logo img {
       width: 50%;
-      margin: 8px auto; }
+      margin: 5px auto; }
   .contact.open:hover .line {
     background-color: #303847; }
   section {
