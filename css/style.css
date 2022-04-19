@@ -263,6 +263,7 @@ button {
     align-self: flex-end; }
 
 section {
+  height: calc(100vh - 50px);
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -448,7 +449,8 @@ header nav {
 
 #gallery {
   display: none;
-  z-index: 99; }
+  z-index: 99;
+  height: 100vh; }
   #gallery .row {
     display: flex;
     flex-wrap: wrap;
