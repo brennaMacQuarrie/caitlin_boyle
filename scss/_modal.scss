@@ -1,0 +1,52 @@
+#modal {
+    opacity: 0;
+    z-index: 9;
+    background-image: url('../assets/ep_naturalwhite.png');
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s;
+    .text {
+        position: relative;
+        width: 480px;
+        padding: 50px 50px;
+        border-radius: 5px;
+        border: 1px solid $gold;
+        p, a { 
+            color: $blue;
+            font-size: 16px;
+            transition: all 0.5s; 
+        }
+        h3 {
+            font-size: 35px;
+            background-image: url('../assets/ep_naturalwhite.png');
+            font-family: 'RevReg', sans-serif;
+            position: absolute;
+            top: -25px;
+            left: 70%;
+            white-space: nowrap;
+            padding: 0 8px;
+            transition: left 1.5s ease-in-out;
+            &.open { left: 3%; }
+        }
+        p { 
+            margin-bottom: 25px; 
+            span { display: inline-block; margin-bottom: 10px; }
+        }
+        a {
+            font-weight: 900;
+            font-size: 14px;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+            &:hover, &:focus { letter-spacing: 1.5px; color: $gold; }
+        }
+    }
+}
+
+#modal.open { opacity: 1; }

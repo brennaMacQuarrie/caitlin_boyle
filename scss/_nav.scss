@@ -1,9 +1,18 @@
 header nav {
     height: 50px;
     width: 100%;
-    div {
-        width: 20%;
-        height: auto;
+    display: flex;
+    justify-content: space-between;
+    div.logo {
         margin: 0 auto;
+        img { 
+            max-height: 50px; 
+            width: auto;
+        }
     }
+    div.eye-target {
+        height: 50px;
+        width: 50px;
+    }
+    
 }

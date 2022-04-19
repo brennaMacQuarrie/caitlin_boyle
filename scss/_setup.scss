@@ -21,14 +21,31 @@ html, body {
 
 $blue: #303847;
 $gold: #CFAC3F;
+$grey: #8896AB;
+
 @font-face {
-    font-family: 'GeoSans';
-    src: url('../assets/GeosansLight.ttf') format('truetype');
+    font-family: 'DayRoman';
+    src: url('../assets//fonts/DAYROM__.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RevItalic';
+    src: url('../assets/fonts/RevivalistDisplay-Italic.ttf') format('opentype');
+}
+
+@font-face {
+    font-family: 'RevReg';
+    src: url('../assets/fonts/RevivalistDisplay-Regular.ttf') format('opentype');
+}
+
+@font-face {
+    font-family: 'RevOutline';
+    src: url('../assets/fonts/RevivalistDisplay-Outline.ttf') format('opentype');
 }
 
 body {
     font-size: 1.6rem;
-    font-family: 'GeoSans', sans-serif;
+    font-family: 'DayRoman', sans-serif;
     color: $blue;
     position: relative;
     background-image: url('../assets/ep_naturalwhite.png');
@@ -36,7 +53,7 @@ body {
 }
 
 .wrapper {
-    width: 95%;
+    width: 98%;
     max-width: 2000px;
     margin: 0 auto;
 }
@@ -68,12 +85,11 @@ button {
     background: none;
     text-decoration: underline;
     border: none;
-    font-family: 'GeoSans', sans-serif;
+    font-family: 'DayRoman', sans-serif;
     font-size: 20px;
 }
 
 .hidden { display: none !important; }
-// [x-cloak] { display: none !important; }
 
 .flex {
     display: flex;

@@ -1,5 +1,5 @@
 function changeColor() {
-    document.querySelector('.coming-soon').classList.add('set')
+    // document.querySelector('.coming-soon').classList.add('set')
     document.querySelector('.eye').classList.add('set')
 
     const lines = document.querySelectorAll('.line')
@@ -9,25 +9,21 @@ function changeColor() {
 }
 
 document.onreadystatechange = function() {
-    // if (document.readyState !== "complete") {
-    //     document.querySelector(
-    //       "body").style.visibility = "hidden";
-    //     document.querySelector(
-    //       "#loader").style.visibility = "visible";
-    // } else {
-    //     document.querySelector(
-    //       "#loader").style.display = "none";
-    //     document.querySelector(
-    //       "body").style.visibility = "visible";
-    // }
-    // document.getElementById('contact-info').classList.remove('hidden')
     setTimeout(changeColor, 700)
 }
 
-document.getElementById('open-contact-card').onclick = function() {
-    document.getElementById('contact-card').classList.toggle('open')
-    document.getElementById('open-contact-card').classList.toggle('open')
+document.getElementById('show-modal').onclick = function() {
+    document.getElementById('modal').classList.toggle('open')
+    document.getElementById('hello').classList.toggle('open')
+    document.getElementById('show-modal').classList.toggle('open')
 }
+
+document.getElementById('show-photos').onclick = function() {
+    document.getElementById('show-photos').classList.toggle('corner')
+
+}
+
+
 
 
   

@@ -8,9 +8,7 @@
     align-items: center;
     border-radius: 70px 12px;
     transform: rotate(44deg); 
-    z-index: 999;
     position: relative;
-    // cursor: pointer;
     transition: 5s border-color; 
     .moon {
         background-color: transparent;
@@ -39,3 +37,16 @@
     }
 }
   
+#enter { cursor: pointer; }
+
+.eye.corner {
+    width: 40px;
+    height: 40px;
+    // border-radius: 35px 5px;
+    top: 10px;
+    right: 10px;
+    .moon {
+        height: 25px;
+        width: 25px;
+    }
+}
