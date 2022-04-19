@@ -1,6 +1,6 @@
 #modal {
     opacity: 0;
-    z-index: 9;
+    z-index: 1;
     background-image: url('../assets/ep_naturalwhite.png');
     height: 100vh;
     width: 100vw;
@@ -49,4 +49,4 @@
     }
 }
 
-#modal.open { opacity: 1; }
+#modal.open { opacity: 1; z-index: 99; }

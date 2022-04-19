@@ -296,13 +296,13 @@ header nav {
     header nav div.logo img {
       max-height: 50px;
       width: auto; }
-  header nav div.eye-target {
+  header nav #eye-target {
     height: 50px;
     width: 50px; }
 
 #modal {
   opacity: 0;
-  z-index: 9;
+  z-index: 1;
   background-image: url("../assets/ep_naturalwhite.png");
   height: 100vh;
   width: 100vw;
@@ -351,9 +351,12 @@ header nav {
         color: #CFAC3F; }
 
 #modal.open {
-  opacity: 1; }
+  opacity: 1;
+  z-index: 99; }
 
 .eye {
+  z-index: 8;
+  cursor: pointer;
   border: 20px solid rgba(255, 255, 255, 0.3);
   width: 80px;
   height: 80px;
@@ -388,14 +391,22 @@ header nav {
 #enter {
   cursor: pointer; }
 
-.eye.corner {
-  width: 40px;
-  height: 40px;
-  top: 10px;
-  right: 10px; }
-  .eye.corner .moon {
-    height: 25px;
-    width: 25px; }
+.eye.small {
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  border: 5px solid #CFAC3F;
+  border-radius: 20px 5px;
+  right: 10px;
+  cursor: default; }
+  .eye.small.invisible {
+    opacity: 0; }
+  .eye.small .moon {
+    height: 15px;
+    width: 15px;
+    box-shadow: inset 7px 1px #303847, inset 5px 0px 1px 3px #303847;
+    -moz-box-shadow: inset 7px 0px #303847, inset 5px 0px 1px 1px #303847;
+    transform: rotate(-45deg); }
 
 nav .contact {
   width: 50px;
@@ -445,7 +456,7 @@ nav .contact {
 @media (max-width: 530px) {
   header nav {
     margin: 5px; }
-    header nav div.contact, header nav div.eye-target {
+    header nav div.contact, header nav #eye-target {
       height: 35px;
       width: 35px;
       min-width: 35px; }
