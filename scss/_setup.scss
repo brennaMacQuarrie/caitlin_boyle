@@ -57,6 +57,7 @@ body {
     max-width: 2000px;
     margin: 0 auto;
 }
+
 img {
     width: 100%;
     height: auto;
@@ -103,7 +104,6 @@ button {
 }
 
 section {
-    height: calc(100vh - 50px);
     width: 100%;
     overflow: hidden;
     display: flex;

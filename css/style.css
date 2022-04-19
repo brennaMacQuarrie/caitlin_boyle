@@ -263,7 +263,6 @@ button {
     align-self: flex-end; }
 
 section {
-  height: calc(100vh - 50px);
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -299,6 +298,45 @@ header nav {
   header nav #eye-target {
     height: 50px;
     width: 50px; }
+  header nav .contact {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    z-index: 999;
+    cursor: pointer;
+    position: relative; }
+    header nav .contact:hover .line, header nav .contact:focus .line {
+      background-color: #1e232d; }
+    header nav .contact .line {
+      top: 45%;
+      left: 25%;
+      width: 50%;
+      height: 2px;
+      position: absolute;
+      background-color: #303847;
+      transition: rotate 0.8s, background-color 0.5s, transform 0.8s; }
+    header nav .contact .line1 {
+      top: 25%; }
+    header nav .contact .line2 {
+      width: 40%; }
+    header nav .contact .line3 {
+      top: 65%;
+      width: 45%; }
+  header nav .contact.open .line {
+    background-color: #303847; }
+  header nav .contact.open .line1 {
+    transform: rotate(45deg);
+    top: 45%;
+    left: 25%; }
+  header nav .contact.open .line3 {
+    transform: rotate(-45deg);
+    top: 45%;
+    left: 25%;
+    width: 50%; }
+  header nav .contact.open .line2 {
+    opacity: 0; }
+  header nav .contact.open:hover .line {
+    background-color: #CFAC3F; }
 
 #modal {
   opacity: 0;
@@ -367,7 +405,7 @@ header nav {
   border-radius: 70px 12px;
   transform: rotate(44deg);
   position: relative;
-  transition: 5s border-color; }
+  transition: 5s border-color, 0.3s width, 0.3s height; }
   .eye .moon {
     background-color: transparent;
     width: 50px;
@@ -378,6 +416,26 @@ header nav {
     transform: rotate(-45deg);
     animation: eyeroll 3s linear infinite;
     -webkit-animation: eyeroll 3s linear infinite; }
+  .eye:hover, .eye:focus, .eye:active {
+    width: 83px;
+    height: 83px; }
+
+.eye.small {
+  top: 5px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border: 5px solid #CFAC3F;
+  border-radius: 20px 5px; }
+  .eye.small.invisible {
+    opacity: 0;
+    z-index: 0; }
+  .eye.small .moon {
+    height: 15px;
+    width: 15px;
+    box-shadow: inset 7px 1px #303847, inset 5px 0px 1px 3px #303847;
+    -moz-box-shadow: inset 7px 0px #303847, inset 5px 0px 1px 1px #303847;
+    transform: rotate(-45deg); }
 
 .eye.set {
   border: 20px solid #CFAC3F; }
@@ -388,70 +446,26 @@ header nav {
   100% {
     transform: rotate(360deg); } }
 
-#enter {
-  cursor: pointer; }
+#gallery {
+  display: none;
+  z-index: 99; }
+  #gallery .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 8px; }
+    #gallery .row .column {
+      width: 48%;
+      padding: 0 4px; }
+      #gallery .row .column img {
+        position: relative;
+        top: 30px;
+        margin-top: 8px;
+        vertical-align: middle; }
 
-.eye.small {
-  top: 5px;
-  width: 20px;
-  height: 20px;
-  border: 5px solid #CFAC3F;
-  border-radius: 20px 5px;
-  right: 10px;
-  cursor: default; }
-  .eye.small.invisible {
-    opacity: 0; }
-  .eye.small .moon {
-    height: 15px;
-    width: 15px;
-    box-shadow: inset 7px 1px #303847, inset 5px 0px 1px 3px #303847;
-    -moz-box-shadow: inset 7px 0px #303847, inset 5px 0px 1px 1px #303847;
-    transform: rotate(-45deg); }
-
-nav .contact {
-  width: 50px;
-  height: 50px;
-  margin: 0;
-  z-index: 999;
-  cursor: pointer;
-  position: relative; }
-  nav .contact:hover .line, nav .contact:focus .line {
-    background-color: #1e232d; }
-  nav .contact .line {
-    top: 45%;
-    left: 25%;
-    width: 50%;
-    height: 2px;
-    position: absolute;
-    background-color: #303847;
-    transition: rotate 0.8s, background-color 0.5s, transform 0.8s; }
-  nav .contact .line1 {
-    top: 25%; }
-  nav .contact .line2 {
-    width: 40%; }
-  nav .contact .line3 {
-    top: 65%;
-    width: 45%; }
-
-.contact.open .line {
-  background-color: #303847; }
-
-.contact.open .line1 {
-  transform: rotate(45deg);
-  top: 45%;
-  left: 25%; }
-
-.contact.open .line3 {
-  transform: rotate(-45deg);
-  top: 45%;
-  left: 25%;
-  width: 50%; }
-
-.contact.open .line2 {
-  opacity: 0; }
-
-.contact.open:hover .line {
-  background-color: #CFAC3F; }
+#gallery.open {
+  display: block; }
+  #gallery.open img {
+    top: 0; }
 
 @media (max-width: 530px) {
   header nav {
