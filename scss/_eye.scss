@@ -1,7 +1,6 @@
 .eye {
     z-index: 8;
-    cursor: pointer;
-    border: 20px solid rgba(255, 255, 255, 0.3);
+    border: 20px solid $gold;
     width: 80px;
     height: 80px;
     padding: 3px;
@@ -11,7 +10,7 @@
     border-radius: 70px 12px;
     transform: rotate(44deg); 
     position: relative;
-    transition: 5s border-color, 0.3s width, 0.3s height; 
+    transition: border-color 1s;
     .moon {
         background-color: transparent;
         width: 50px;
@@ -21,11 +20,15 @@
         -moz-box-shadow: inset 20px 0px $blue, inset 20px 0px 1px 1px $blue;  
         transform: rotate(-45deg);   
         animation: eyeroll 3s linear infinite;
-        -webkit-animation: eyeroll 3s linear infinite
+        -webkit-animation: eyeroll 3s linear infinite;
+        transition: box-shadow 1s;
     }
-    &:hover, &:focus, &:active {
-        width: 83px;
-        height: 83px;
+    &:hover, &:focus, &.loading {
+        border-color: $blue;
+        .moon {
+            box-shadow: inset 22px 5px $gold, inset 20px 0px 1px 7px $gold;
+            -moz-box-shadow: inset 20px 0px $gold, inset 20px 0px 1px 1px $gold;  
+        }
     }
 }
 
@@ -44,12 +47,14 @@
         -moz-box-shadow: inset 7px 0px $blue, inset 5px 0px 1px 1px $blue;  
         transform: rotate(-45deg);   
     }
+    &:hover, &:focus {
+        border-color: $blue;
+        .moon {
+            box-shadow: inset 7px 1px $gold, inset 5px 0px 1px 3px $gold;
+            -moz-box-shadow: inset 7px 0px $gold, inset 5px 0px 1px 1px $gold;       
+        }
+    }
 }
-
-.eye.set {
-    border: 20px solid $gold;
-}
-
 
 @keyframes eyeroll {
     0% {

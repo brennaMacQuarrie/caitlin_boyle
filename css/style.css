@@ -271,20 +271,35 @@ section {
   padding-top: calc(30vh - 20px);
   background-color: transparent; }
   section .content {
-    width: 50%;
-    height: 40%;
+    height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    text-align: center; }
+    text-align: center;
+    cursor: pointer;
+    z-index: 8; }
+    section .content h2 {
+      color: #303847;
+      font-family: RevOutline, sans-serif;
+      margin: 0;
+      padding-bottom: 10px;
+      white-space: no-wrap;
+      letter-spacing: 2px;
+      width: 77px;
+      animation: type 1.5s steps(5, end);
+      overflow: hidden; }
+    section .content:hover h2, section .content:focus h2, section .content h2:hover h2, section .content h2:focus h2 {
+      font-family: RevReg, sans-serif; }
+    section .content:hover .eye, section .content:focus .eye, section .content h2:hover .eye, section .content h2:focus .eye {
+      border-color: #303847; }
+      section .content:hover .eye .moon, section .content:focus .eye .moon, section .content h2:hover .eye .moon, section .content h2:focus .eye .moon {
+        box-shadow: inset 22px 5px #CFAC3F, inset 20px 0px 1px 7px #CFAC3F;
+        -moz-box-shadow: inset 20px 0px #CFAC3F, inset 20px 0px 1px 1px #CFAC3F; }
 
-h1 {
-  color: rgba(255, 255, 255, 0.3);
-  transition: 5s color; }
-
-h1.set {
-  color: #303847; }
+@keyframes type {
+  from {
+    width: 0; } }
 
 header nav {
   height: 50px;
@@ -323,8 +338,6 @@ header nav {
     header nav .contact .line3 {
       top: 65%;
       width: 45%; }
-  header nav .contact.open .line {
-    background-color: #303847; }
   header nav .contact.open .line1 {
     transform: rotate(45deg);
     top: 45%;
@@ -370,9 +383,9 @@ header nav {
       position: absolute;
       top: -25px;
       left: 70%;
+      transition: left 1.5s ease-in-out;
       white-space: nowrap;
-      padding: 0 8px;
-      transition: left 1.5s ease-in-out; }
+      padding: 0 8px; }
       #modal .text h3.open {
         left: 3%; }
     #modal .text p {
@@ -395,8 +408,7 @@ header nav {
 
 .eye {
   z-index: 8;
-  cursor: pointer;
-  border: 20px solid rgba(255, 255, 255, 0.3);
+  border: 20px solid #CFAC3F;
   width: 80px;
   height: 80px;
   padding: 3px;
@@ -406,7 +418,7 @@ header nav {
   border-radius: 70px 12px;
   transform: rotate(44deg);
   position: relative;
-  transition: 5s border-color, 0.3s width, 0.3s height; }
+  transition: border-color 1s; }
   .eye .moon {
     background-color: transparent;
     width: 50px;
@@ -416,10 +428,13 @@ header nav {
     -moz-box-shadow: inset 20px 0px #303847, inset 20px 0px 1px 1px #303847;
     transform: rotate(-45deg);
     animation: eyeroll 3s linear infinite;
-    -webkit-animation: eyeroll 3s linear infinite; }
-  .eye:hover, .eye:focus, .eye:active {
-    width: 83px;
-    height: 83px; }
+    -webkit-animation: eyeroll 3s linear infinite;
+    transition: box-shadow 1s; }
+  .eye:hover, .eye:focus, .eye.loading {
+    border-color: #303847; }
+    .eye:hover .moon, .eye:focus .moon, .eye.loading .moon {
+      box-shadow: inset 22px 5px #CFAC3F, inset 20px 0px 1px 7px #CFAC3F;
+      -moz-box-shadow: inset 20px 0px #CFAC3F, inset 20px 0px 1px 1px #CFAC3F; }
 
 .eye.small {
   top: 5px;
@@ -437,9 +452,11 @@ header nav {
     box-shadow: inset 7px 1px #303847, inset 5px 0px 1px 3px #303847;
     -moz-box-shadow: inset 7px 0px #303847, inset 5px 0px 1px 1px #303847;
     transform: rotate(-45deg); }
-
-.eye.set {
-  border: 20px solid #CFAC3F; }
+  .eye.small:hover, .eye.small:focus {
+    border-color: #303847; }
+    .eye.small:hover .moon, .eye.small:focus .moon {
+      box-shadow: inset 7px 1px #CFAC3F, inset 5px 0px 1px 3px #CFAC3F;
+      -moz-box-shadow: inset 7px 0px #CFAC3F, inset 5px 0px 1px 1px #CFAC3F; }
 
 @keyframes eyeroll {
   0% {
@@ -449,7 +466,18 @@ header nav {
 
 #gallery {
   display: none;
-  height: 100vh; }
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 20px;
+  margin: none; }
+  #gallery h1 {
+    font-size: 80px;
+    text-align: center;
+    color: #CFAC3F;
+    font-family: RevReg, serif; }
   #gallery .row {
     display: flex;
     flex-wrap: wrap;
@@ -465,7 +493,8 @@ header nav {
 
 #gallery.open {
   display: block;
-  z-index: 99; }
+  z-index: 99;
+  background-color: #303847; }
   #gallery.open img {
     top: 0; }
 
@@ -491,4 +520,7 @@ header nav {
     padding: 40px 20px;
     height: auto; }
     #modal .text h3 {
-      font-size: 28px; } }
+      font-size: 28px;
+      font-family: RevOutline, serif;
+      left: 50%;
+      transition: left 1s ease-in-out; } }

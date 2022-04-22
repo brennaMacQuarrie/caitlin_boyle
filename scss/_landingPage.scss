@@ -1,0 +1,46 @@
+section {
+    height: calc(100vh - 50px);
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding-top: calc(30vh - 20px);
+    background-color: transparent;
+    .content { 
+        height: 20%;
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        z-index: 8;
+        h2 {
+            color: $blue;
+            font-family: RevOutline, sans-serif;
+            margin: 0;
+            padding-bottom: 10px;
+            white-space: no-wrap;
+            letter-spacing: 2px;
+            width: 77px;
+            
+            animation: type 1.5s steps(5, end);
+            overflow: hidden;
+        }
+        &:hover, &:focus, h2:hover, h2:focus {
+            h2 { font-family: RevReg, sans-serif; }
+            .eye {
+                border-color: $blue;
+                .moon {
+                    box-shadow: inset 22px 5px $gold, inset 20px 0px 1px 7px $gold;
+                    -moz-box-shadow: inset 20px 0px $gold, inset 20px 0px 1px 1px $gold;  
+                }
+            }
+        }
+    }
+}
+
+@keyframes type { 
+    from { width: 0; } 
+} 
+

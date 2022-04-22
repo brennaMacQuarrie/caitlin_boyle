@@ -30,9 +30,9 @@
             position: absolute;
             top: -25px;
             left: 70%;
+            transition: left 1.5s ease-in-out;
             white-space: nowrap;
             padding: 0 8px;
-            transition: left 1.5s ease-in-out;
             &.open { left: 3%; }
         }
         p { 

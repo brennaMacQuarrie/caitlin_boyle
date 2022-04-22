@@ -103,28 +103,5 @@ button {
     .self-end {align-self: flex-end;}
 }
 
-section {
-    height: calc(100vh - 50px);
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    padding-top: calc(30vh - 20px);
-    background-color: transparent;
-    .content { 
-        width: 50%; 
-        height: 40%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-    }
-}
 
-h1 {color: rgba(255, 255, 255, 0.3); transition: 5s color;}
-
-h1.set {
-    color: $blue;
-}
 

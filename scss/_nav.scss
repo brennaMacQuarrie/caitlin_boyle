@@ -47,7 +47,6 @@ header nav {
     
     
     .contact.open {
-        .line { background-color: $blue; }
         .line1 {
             transform: rotate(45deg);
             top: 45%;
@@ -68,6 +67,4 @@ header nav {
             }
         }
     }
-    
-    
 }

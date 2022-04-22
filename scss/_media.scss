@@ -22,7 +22,12 @@
         }
     }
     #modal .text {
-        h3 { font-size: 28px; }
+        h3 { 
+            font-size: 28px;
+            font-family: RevOutline, serif;
+            left: 50%;
+            transition: left 1s ease-in-out; 
+        }
         width: 75%;
         padding: 40px 20px;
         height: auto;

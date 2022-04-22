@@ -1,38 +1,38 @@
-const modal = document.getElementById('modal')
-const menuCTA = document.getElementById('show-modal')
-const mainEye = document.getElementById('show-photos')
+const infoModal = document.getElementById('modal')
+const hamburgerMenu = document.getElementById('show-modal')
+const largeEye = document.getElementById('show-photos')
 const smallEye = document.getElementById('eye-sm')
 const gallery = document.getElementById('gallery')
+const enter = document.getElementById('enter')
 
-function changeColor() {
-    mainEye.classList.add('set')
-
-    const lines = document.querySelectorAll('.line')
-    for (const line of lines) {
-        line.classList.add('set')
-    }
-}
-
-document.onreadystatechange = function() {
-    setTimeout(changeColor, 700)
-}
-
-menuCTA.onclick = function() {
-    modal.classList.toggle('open')
+hamburgerMenu.onclick = function() {
+    infoModal.classList.toggle('open')
     document.getElementById('hello').classList.toggle('open')
-    menuCTA.classList.toggle('open')
+    hamburgerMenu.classList.toggle('open')
 }
 
-mainEye.onclick = function() {
-    mainEye.classList.add('hidden')
+largeEye.onclick = function() {
+    largeEye.classList.add('loading')
+    enter.style.fontFamily = 'RevReg, serif'
+    let allImages = [].slice.call(document.getElementsByTagName('img'))
+    let loadedImages = 0
+
+    allImages.forEach(img => {
+        img = new Image()
+        if (img.complete) loadedImages++ 
+        if (loadedImages == allImages.length) setTimeout(showImages, 2000)
+    })
+}
+
+function showImages() {
+    largeEye.classList.add('hidden')
     smallEye.classList.remove('invisible')
     gallery.classList.add('open')
-
-    // show photos now!
 }
 
 smallEye.onclick = function() {
-    mainEye.classList.remove('hidden')
+    enter.style.fontFamily = 'RevOutline, serif'
+    largeEye.classList.remove('hidden', 'loading')
     smallEye.classList.add('invisible')
     gallery.classList.remove('open')
 }

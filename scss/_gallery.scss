@@ -1,7 +1,18 @@
 #gallery {
     display: none;
-    height: 100vh;
-
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 20px;
+    margin: none;
+    h1 {
+        font-size: 80px;
+        text-align: center;
+        color: $gold;
+        font-family: RevReg, serif;
+    }
     .row {
         display: flex;
         flex-wrap: wrap;
@@ -22,6 +33,6 @@
 #gallery.open {
     display: block;
     z-index: 99;
-
+    background-color: $blue;
     img { top: 0; }
 }
