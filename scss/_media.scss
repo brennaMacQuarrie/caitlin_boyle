@@ -12,24 +12,29 @@
             margin: 5px auto;
         }
     }
-    .contact.open:hover .line {
-        background-color: $blue;
-    }
     section {
         padding-top: calc(40vh - 50px);
         .content {
-            height: 50%;
+            height: 30%;
         }
+    }
+    #gallery {
+        width: unset;
+        .gallery-header {
+            h1 {font-size: 25px;}
+        }
+        .row .column { width: 100%;  padding: 0; }
+        
     }
     #modal .text {
         h3 { 
             font-size: 28px;
-            font-family: RevOutline, serif;
             left: 50%;
             transition: left 1s ease-in-out; 
         }
         width: 75%;
         padding: 40px 20px;
+        margin-top: 50px;
         height: auto;
     }
 }

@@ -1,5 +1,5 @@
 .eye {
-    z-index: 8;
+    // z-index: 7;
     border: 20px solid $gold;
     width: 80px;
     height: 80px;
@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 70px 12px;
+    border-radius: 80px 10px;
     transform: rotate(44deg); 
     position: relative;
     transition: border-color 1s;
@@ -30,30 +30,7 @@
             -moz-box-shadow: inset 20px 0px $gold, inset 20px 0px 1px 1px $gold;  
         }
     }
-}
 
-.eye.small {
-    &.invisible {opacity: 0; z-index: 0;}
-    top: 5px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    border: 5px solid $gold;
-    border-radius: 20px 5px;
-    .moon {
-        height: 15px;
-        width: 15px;
-        box-shadow: inset 7px 1px $blue, inset 5px 0px 1px 3px $blue;
-        -moz-box-shadow: inset 7px 0px $blue, inset 5px 0px 1px 1px $blue;  
-        transform: rotate(-45deg);   
-    }
-    &:hover, &:focus {
-        border-color: $blue;
-        .moon {
-            box-shadow: inset 7px 1px $gold, inset 5px 0px 1px 3px $gold;
-            -moz-box-shadow: inset 7px 0px $gold, inset 5px 0px 1px 1px $gold;       
-        }
-    }
 }
 
 @keyframes eyeroll {

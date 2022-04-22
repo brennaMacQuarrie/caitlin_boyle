@@ -1,9 +1,12 @@
 const infoModal = document.getElementById('modal')
 const hamburgerMenu = document.getElementById('show-modal')
 const largeEye = document.getElementById('show-photos')
-const smallEye = document.getElementById('eye-sm')
 const gallery = document.getElementById('gallery')
 const enter = document.getElementById('enter')
+const exit = document.getElementById('close-gallery')
+
+let contactView = false
+let galleryView = false
 
 hamburgerMenu.onclick = function() {
     infoModal.classList.toggle('open')
@@ -26,14 +29,13 @@ largeEye.onclick = function() {
 
 function showImages() {
     largeEye.classList.add('hidden')
-    smallEye.classList.remove('invisible')
+    hamburgerMenu.classList.add('invisible')
     gallery.classList.add('open')
 }
 
-smallEye.onclick = function() {
+exit.onclick = function() {
     enter.style.fontFamily = 'RevOutline, serif'
     largeEye.classList.remove('hidden', 'loading')
-    smallEye.classList.add('invisible')
     gallery.classList.remove('open')
 }
 

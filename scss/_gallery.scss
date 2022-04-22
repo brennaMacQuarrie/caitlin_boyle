@@ -1,29 +1,45 @@
 #gallery {
+    background-color: $blue;
     display: none;
     min-height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
-    padding: 5px 20px;
+    padding: 20px 20px;
     margin: none;
-    h1 {
-        font-size: 80px;
+    overflow: scroll;
+    .gallery-header {
         text-align: center;
         color: $gold;
-        font-family: RevReg, serif;
+        h1 {
+            font-family: RevReg, serif;
+            font-size: 80px;
+            margin: 20px auto;
+        }
+        p {
+            cursor: pointer;
+            font-family: RevOutline, serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            &:hover, &:focus {
+                font-family: RevReg, serif;
+            }
+        }
     }
     .row {
         display: flex;
         flex-wrap: wrap;
-        padding: 0 8px;
+        padding: 0px 8px 50px 8px;
+        margin: 0 auto;
         .column {
             width: 48%;
             padding: 0 4px;
             img {
                 position: relative;
                 top: 30px;
-                margin-top: 8px;
+                margin-bottom: 8px;
                 vertical-align: middle;
             }
         }
@@ -32,7 +48,9 @@
 
 #gallery.open {
     display: block;
-    z-index: 99;
-    background-color: $blue;
-    img { top: 0; }
+    z-index: 8;
+    .row .column img { 
+        border: 0.2px solid $gold; 
+        // margin-top: 0px;
+    }
 }

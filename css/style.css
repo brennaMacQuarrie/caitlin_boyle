@@ -278,7 +278,7 @@ section {
     align-items: center;
     text-align: center;
     cursor: pointer;
-    z-index: 8; }
+    z-index: 7; }
     section .content h2 {
       color: #303847;
       font-family: RevOutline, sans-serif;
@@ -288,7 +288,8 @@ section {
       letter-spacing: 2px;
       width: 77px;
       animation: type 1.5s steps(5, end);
-      overflow: hidden; }
+      overflow: hidden;
+      transition: transform 3.5s; }
     section .content:hover h2, section .content:focus h2, section .content h2:hover h2, section .content h2:focus h2 {
       font-family: RevReg, sans-serif; }
     section .content:hover .eye, section .content:focus .eye, section .content h2:hover .eye, section .content h2:focus .eye {
@@ -407,7 +408,6 @@ header nav {
   z-index: 99; }
 
 .eye {
-  z-index: 8;
   border: 20px solid #CFAC3F;
   width: 80px;
   height: 80px;
@@ -415,7 +415,7 @@ header nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 70px 12px;
+  border-radius: 80px 10px;
   transform: rotate(44deg);
   position: relative;
   transition: border-color 1s; }
@@ -436,28 +436,6 @@ header nav {
       box-shadow: inset 22px 5px #CFAC3F, inset 20px 0px 1px 7px #CFAC3F;
       -moz-box-shadow: inset 20px 0px #CFAC3F, inset 20px 0px 1px 1px #CFAC3F; }
 
-.eye.small {
-  top: 5px;
-  right: 10px;
-  width: 20px;
-  height: 20px;
-  border: 5px solid #CFAC3F;
-  border-radius: 20px 5px; }
-  .eye.small.invisible {
-    opacity: 0;
-    z-index: 0; }
-  .eye.small .moon {
-    height: 15px;
-    width: 15px;
-    box-shadow: inset 7px 1px #303847, inset 5px 0px 1px 3px #303847;
-    -moz-box-shadow: inset 7px 0px #303847, inset 5px 0px 1px 1px #303847;
-    transform: rotate(-45deg); }
-  .eye.small:hover, .eye.small:focus {
-    border-color: #303847; }
-    .eye.small:hover .moon, .eye.small:focus .moon {
-      box-shadow: inset 7px 1px #CFAC3F, inset 5px 0px 1px 3px #CFAC3F;
-      -moz-box-shadow: inset 7px 0px #CFAC3F, inset 5px 0px 1px 1px #CFAC3F; }
-
 @keyframes eyeroll {
   0% {
     transform: rotate(0deg); }
@@ -465,38 +443,50 @@ header nav {
     transform: rotate(360deg); } }
 
 #gallery {
+  background-color: #303847;
   display: none;
   min-height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
   width: 100%;
-  padding: 5px 20px;
-  margin: none; }
-  #gallery h1 {
-    font-size: 80px;
+  padding: 20px 20px;
+  margin: none;
+  overflow: scroll; }
+  #gallery .gallery-header {
     text-align: center;
-    color: #CFAC3F;
-    font-family: RevReg, serif; }
+    color: #CFAC3F; }
+    #gallery .gallery-header h1 {
+      font-family: RevReg, serif;
+      font-size: 80px;
+      margin: 20px auto; }
+    #gallery .gallery-header p {
+      cursor: pointer;
+      font-family: RevOutline, serif;
+      font-size: 14px;
+      letter-spacing: 2px; }
+      #gallery .gallery-header p:hover, #gallery .gallery-header p:focus {
+        font-family: RevReg, serif; }
   #gallery .row {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 8px; }
+    padding: 0px 8px 50px 8px;
+    margin: 0 auto; }
     #gallery .row .column {
       width: 48%;
       padding: 0 4px; }
       #gallery .row .column img {
         position: relative;
         top: 30px;
-        margin-top: 8px;
+        margin-bottom: 8px;
         vertical-align: middle; }
 
 #gallery.open {
   display: block;
-  z-index: 99;
-  background-color: #303847; }
-  #gallery.open img {
-    top: 0; }
+  z-index: 8; }
+  #gallery.open .row .column img {
+    border: 0.2px solid #CFAC3F; }
 
 @media (max-width: 530px) {
   header nav {
@@ -509,18 +499,23 @@ header nav {
       width: 50%;
       min-width: 150px;
       margin: 5px auto; }
-  .contact.open:hover .line {
-    background-color: #303847; }
   section {
     padding-top: calc(40vh - 50px); }
     section .content {
-      height: 50%; }
+      height: 30%; }
+  #gallery {
+    width: unset; }
+    #gallery .gallery-header h1 {
+      font-size: 25px; }
+    #gallery .row .column {
+      width: 100%;
+      padding: 0; }
   #modal .text {
     width: 75%;
     padding: 40px 20px;
+    margin-top: 50px;
     height: auto; }
     #modal .text h3 {
       font-size: 28px;
-      font-family: RevOutline, serif;
       left: 50%;
       transition: left 1s ease-in-out; } }
