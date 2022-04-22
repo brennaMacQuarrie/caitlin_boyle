@@ -23,7 +23,7 @@ largeEye.onclick = function() {
     allImages.forEach(img => {
         img = new Image()
         if (img.complete) loadedImages++ 
-        if (loadedImages == allImages.length) setTimeout(showImages, 2000)
+        if (loadedImages == allImages.length) setTimeout(showImages, 1000)
     })
 }
 
