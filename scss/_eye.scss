@@ -1,6 +1,6 @@
 .eye {
     border: 20px solid $gold;
-    border-radius: 80px 10px;
+    border-radius: 80px 24px;
     width: 80px;
     height: 80px;
     padding: 3px;
@@ -19,6 +19,9 @@
         transform: rotate(-45deg);   
         animation: eyeroll 3s linear infinite;
         -webkit-animation: eyeroll 3s linear infinite;
+        -moz-animation:    eyeroll 3s linear infinite; 
+        -o-animation:      eyeroll 3s linear infinite; 
+        
         transition: box-shadow 1s;
     }
     &.loading {

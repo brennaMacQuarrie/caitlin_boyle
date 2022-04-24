@@ -119,7 +119,9 @@ button {
     width: 15px;
     display: inline-block;
     &.loading {
-        animation: eyeroll 3s linear infinite;
+        animation: eyeroll 2s linear infinite;
         -webkit-animation: eyeroll 2s linear infinite;
+        -moz-animation:    eyeroll 2s; 
+        -o-:      eyeroll 2s; 
     }
 }

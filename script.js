@@ -19,7 +19,7 @@ function checkImageLoad() {
         largeEye.classList.add('loading')
         enterText.style.fontFamily = 'RevReg, serif'
     }
-
+    
     let allImages = [].slice.call(document.getElementsByTagName('img'))
     let loadedImages = 0
     
@@ -39,7 +39,7 @@ function closeModal() {
 function showGallery() {
     largeEye.classList.add('hidden')
     gallery.classList.add('open')
-    toggleModalButton.style.zIndex = 0
+    toggleModalButton.style.zIndex = "0"
     if (infoModal.classList.contains('open')) {
         closeModal()
     }
@@ -65,6 +65,8 @@ closeGalleryButton.onclick = function() {
     largeEye.classList.remove('hidden', 'loading')
     gallery.classList.remove('open')
     toggleModalButton.classList.remove('hidden')
+    toggleModalButton.style.zIndex = "999"
+
 }
 
 

@@ -273,8 +273,10 @@ button {
   width: 15px;
   display: inline-block; }
   .icon.loading {
-    animation: eyeroll 3s linear infinite;
-    -webkit-animation: eyeroll 2s linear infinite; }
+    animation: eyeroll 2s linear infinite;
+    -webkit-animation: eyeroll 2s linear infinite;
+    -moz-animation: eyeroll 2s;
+    -o-: eyeroll 2s; }
 
 section {
   width: 100%;
@@ -300,6 +302,9 @@ section {
       letter-spacing: 2px;
       width: 77px;
       animation: type 1.5s steps(5, end);
+      -webkit-animation: type 1.5s steps(5, end);
+      -moz-animation: type 1.5s steps(5, end);
+      -o-animation: type 1.5s steps(5, end);
       overflow: hidden; }
       section #enter h2#enter-text:hover, section #enter h2#enter-text:focus {
         font-family: RevReg, sans-serif; }
@@ -320,13 +325,13 @@ header nav {
   width: 100%;
   display: flex;
   justify-content: space-between; }
-  header nav div.logo {
-    margin: 0 auto; }
-    header nav div.logo img {
-      max-height: 50px;
-      width: auto; }
-  header nav #eye-target {
-    height: 50px;
+  header nav .logo p {
+    font-family: RevReg, serif;
+    font-size: calc(2vw + 20px);
+    display: flex;
+    align-items: center;
+    line-height: 90%; }
+  header nav div.place {
     width: 50px; }
 
 .contact {
@@ -372,7 +377,8 @@ header nav {
   background-color: #14171e; }
 
 #gallery-nav {
-  display: flex; }
+  display: flex;
+  align-items: flex-start; }
   #gallery-nav .line {
     background-color: #CFAC3F; }
   #gallery-nav .line1 {
@@ -451,11 +457,13 @@ header nav {
 
 #modal.open {
   opacity: 1;
-  z-index: 99; }
+  z-index: 8; }
+  #modal.open ~ header nav .contact {
+    z-index: 999; }
 
 .eye {
   border: 20px solid #CFAC3F;
-  border-radius: 80px 10px;
+  border-radius: 80px 24px;
   width: 80px;
   height: 80px;
   padding: 3px;
@@ -474,6 +482,8 @@ header nav {
     transform: rotate(-45deg);
     animation: eyeroll 3s linear infinite;
     -webkit-animation: eyeroll 3s linear infinite;
+    -moz-animation: eyeroll 3s linear infinite;
+    -o-animation: eyeroll 3s linear infinite;
     transition: box-shadow 1s; }
   .eye.loading {
     border-color: #303847; }
@@ -505,7 +515,8 @@ header nav {
     #gallery .gallery-header h1 {
       font-family: RevReg, serif;
       font-size: 80px;
-      margin: 0 auto; }
+      margin: 0 auto;
+      text-align: center; }
     #gallery .gallery-header h2 {
       font-family: RevOutline, serif;
       color: #CFCCD6;
@@ -513,7 +524,7 @@ header nav {
       margin: 0 10px;
       font-size: 20px;
       letter-spacing: 2px; }
-    #gallery .gallery-header div:not(#gallery-nav) {
+    #gallery .gallery-header div:not(#gallery-nav):not(#close-gallery) {
       margin-top: 10px;
       display: flex;
       align-items: center;

@@ -62,4 +62,7 @@
     }
 }
 
-#modal.open { opacity: 1; z-index: 99; }
+#modal.open { 
+    opacity: 1; z-index: 8; 
+    ~ header nav .contact { z-index: 999;}
+}
