@@ -1,9 +1,9 @@
 #modal {
-    opacity: 0;
-    z-index: 1;
-    background-image: url('../assets/ep_naturalwhite.png');
-    height: 100vh;
     width: 100vw;
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    background-image: url('../assets/ep_naturalwhite.png');
     position: absolute;
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@
     .text {
         position: relative;
         width: 480px;
-        padding: 50px 50px;
+        padding: 50px 50px 30px 50px;
         border-radius: 5px;
         border: 1px solid $gold;
         p, a { 
@@ -34,6 +34,19 @@
             white-space: nowrap;
             padding: 0 8px;
             &.open { left: 3%; }
+        }
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        h4 {
+            font-family: 'RevReg', sans-serif;
+            text-align: right;
+            font-style: italic;
+            cursor: pointer;
+            &:hover, &:focus {text-decoration: underline;}
         }
         p { 
             margin-bottom: 25px; 

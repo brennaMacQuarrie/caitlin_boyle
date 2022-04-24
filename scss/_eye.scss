@@ -1,15 +1,13 @@
 .eye {
-    // z-index: 7;
     border: 20px solid $gold;
+    border-radius: 80px 10px;
     width: 80px;
     height: 80px;
     padding: 3px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 80px 10px;
+    justify-content: center;
     transform: rotate(44deg); 
-    position: relative;
     transition: border-color 1s;
     .moon {
         background-color: transparent;
@@ -23,8 +21,9 @@
         -webkit-animation: eyeroll 3s linear infinite;
         transition: box-shadow 1s;
     }
-    &:hover, &:focus, &.loading {
+    &.loading {
         border-color: $blue;
+        + h2 { font-family: RevReg, serif; }
         .moon {
             box-shadow: inset 22px 5px $gold, inset 20px 0px 1px 7px $gold;
             -moz-box-shadow: inset 20px 0px $gold, inset 20px 0px 1px 1px $gold;  

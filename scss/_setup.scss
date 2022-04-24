@@ -2,9 +2,11 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
 
-html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+html { 
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+}
 
-// *, *:before, *:after {box-sizing: inherit}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
@@ -16,12 +18,18 @@ html {
 
 html, body {
     overflow-x:hidden;
+    -webkit-overflow-scrolling: touch;
 } 
 
+main {
+    height: 100vh;
+}
 
 $blue: #303847;
+$darkBlue: #14171e;
 $gold: #CFAC3F;
-$grey: #8896AB;
+$darkGold: #997d29;
+$grey: #CFCCD6;
 
 @font-face {
     font-family: 'DayRoman';
@@ -104,3 +112,14 @@ button {
 }
 
 
+.icon {
+    background: url('../assets/Star.png');
+    background-size: contain;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    &.loading {
+        animation: eyeroll 3s linear infinite;
+        -webkit-animation: eyeroll 2s linear infinite;
+    }
+}

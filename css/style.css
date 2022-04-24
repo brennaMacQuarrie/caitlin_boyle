@@ -185,7 +185,11 @@ html {
   scroll-behavior: smooth; }
 
 html, body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; }
+
+main {
+  height: 100vh; }
 
 @font-face {
   font-family: 'DayRoman';
@@ -262,15 +266,23 @@ button {
   .flex .self-end {
     align-self: flex-end; }
 
+.icon {
+  background: url("../assets/Star.png");
+  background-size: contain;
+  height: 15px;
+  width: 15px;
+  display: inline-block; }
+  .icon.loading {
+    animation: eyeroll 3s linear infinite;
+    -webkit-animation: eyeroll 2s linear infinite; }
+
 section {
-  height: calc(100vh - 50px);
   width: 100%;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   padding-top: calc(30vh - 20px);
   background-color: transparent; }
-  section .content {
+  section #enter {
     height: 20%;
     display: flex;
     flex-direction: column;
@@ -279,7 +291,7 @@ section {
     text-align: center;
     cursor: pointer;
     z-index: 7; }
-    section .content h2 {
+    section #enter h2#enter-text {
       color: #303847;
       font-family: RevOutline, sans-serif;
       margin: 0;
@@ -288,13 +300,14 @@ section {
       letter-spacing: 2px;
       width: 77px;
       animation: type 1.5s steps(5, end);
-      overflow: hidden;
-      transition: transform 3.5s; }
-    section .content:hover h2, section .content:focus h2, section .content h2:hover h2, section .content h2:focus h2 {
+      overflow: hidden; }
+      section #enter h2#enter-text:hover, section #enter h2#enter-text:focus {
+        font-family: RevReg, sans-serif; }
+    section #enter:hover h2#enter-text, section #enter:focus h2#enter-text {
       font-family: RevReg, sans-serif; }
-    section .content:hover .eye, section .content:focus .eye, section .content h2:hover .eye, section .content h2:focus .eye {
+    section #enter:hover .eye, section #enter:focus .eye {
       border-color: #303847; }
-      section .content:hover .eye .moon, section .content:focus .eye .moon, section .content h2:hover .eye .moon, section .content h2:focus .eye .moon {
+      section #enter:hover .eye .moon, section #enter:focus .eye .moon {
         box-shadow: inset 22px 5px #CFAC3F, inset 20px 0px 1px 7px #CFAC3F;
         -moz-box-shadow: inset 20px 0px #CFAC3F, inset 20px 0px 1px 1px #CFAC3F; }
 
@@ -315,50 +328,71 @@ header nav {
   header nav #eye-target {
     height: 50px;
     width: 50px; }
-  header nav .contact {
-    width: 50px;
-    height: 50px;
-    margin: 0;
-    z-index: 999;
-    cursor: pointer;
-    position: relative; }
-    header nav .contact:hover .line, header nav .contact:focus .line {
-      background-color: #1e232d; }
-    header nav .contact .line {
-      top: 45%;
-      left: 25%;
-      width: 50%;
-      height: 2px;
-      position: absolute;
-      background-color: #303847;
-      transition: rotate 0.8s, background-color 0.5s, transform 0.8s; }
-    header nav .contact .line1 {
-      top: 25%; }
-    header nav .contact .line2 {
-      width: 40%; }
-    header nav .contact .line3 {
-      top: 65%;
-      width: 45%; }
-  header nav .contact.open .line1 {
+
+.contact {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  z-index: 999;
+  cursor: pointer;
+  position: relative; }
+  .contact:hover .line, .contact:focus .line {
+    background-color: #1e232d; }
+  .contact .line {
+    top: 45%;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    position: absolute;
+    background-color: #303847;
+    transition: rotate 0.8s, background-color 0.5s, transform 0.8s; }
+  .contact .line1 {
+    top: 25%; }
+  .contact .line2 {
+    width: 40%; }
+  .contact .line3 {
+    top: 65%;
+    width: 45%; }
+
+.contact.open .line1 {
+  transform: rotate(45deg);
+  top: 45%;
+  left: 25%; }
+
+.contact.open .line3 {
+  transform: rotate(-45deg);
+  top: 45%;
+  left: 25%;
+  width: 50%; }
+
+.contact.open .line2 {
+  opacity: 0; }
+
+.contact.open:hover .line {
+  background-color: #14171e; }
+
+#gallery-nav {
+  display: flex; }
+  #gallery-nav .line {
+    background-color: #CFAC3F; }
+  #gallery-nav .line1 {
     transform: rotate(45deg);
     top: 45%;
     left: 25%; }
-  header nav .contact.open .line3 {
+  #gallery-nav .line2 {
     transform: rotate(-45deg);
     top: 45%;
     left: 25%;
     width: 50%; }
-  header nav .contact.open .line2 {
-    opacity: 0; }
-  header nav .contact.open:hover .line {
-    background-color: #CFAC3F; }
+  #gallery-nav:hover .line {
+    background-color: #997d29; }
 
 #modal {
-  opacity: 0;
-  z-index: 1;
-  background-image: url("../assets/ep_naturalwhite.png");
-  height: 100vh;
   width: 100vw;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  background-image: url("../assets/ep_naturalwhite.png");
   position: absolute;
   top: 0;
   left: 0;
@@ -370,7 +404,7 @@ header nav {
   #modal .text {
     position: relative;
     width: 480px;
-    padding: 50px 50px;
+    padding: 50px 50px 30px 50px;
     border-radius: 5px;
     border: 1px solid #CFAC3F; }
     #modal .text p, #modal .text a {
@@ -389,6 +423,18 @@ header nav {
       padding: 0 8px; }
       #modal .text h3.open {
         left: 3%; }
+    #modal .text div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px; }
+    #modal .text h4 {
+      font-family: 'RevReg', sans-serif;
+      text-align: right;
+      font-style: italic;
+      cursor: pointer; }
+      #modal .text h4:hover, #modal .text h4:focus {
+        text-decoration: underline; }
     #modal .text p {
       margin-bottom: 25px; }
       #modal .text p span {
@@ -409,15 +455,14 @@ header nav {
 
 .eye {
   border: 20px solid #CFAC3F;
+  border-radius: 80px 10px;
   width: 80px;
   height: 80px;
   padding: 3px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 80px 10px;
+  justify-content: center;
   transform: rotate(44deg);
-  position: relative;
   transition: border-color 1s; }
   .eye .moon {
     background-color: transparent;
@@ -430,9 +475,11 @@ header nav {
     animation: eyeroll 3s linear infinite;
     -webkit-animation: eyeroll 3s linear infinite;
     transition: box-shadow 1s; }
-  .eye:hover, .eye:focus, .eye.loading {
+  .eye.loading {
     border-color: #303847; }
-    .eye:hover .moon, .eye:focus .moon, .eye.loading .moon {
+    .eye.loading + h2 {
+      font-family: RevReg, serif; }
+    .eye.loading .moon {
       box-shadow: inset 22px 5px #CFAC3F, inset 20px 0px 1px 7px #CFAC3F;
       -moz-box-shadow: inset 20px 0px #CFAC3F, inset 20px 0px 1px 1px #CFAC3F; }
 
@@ -443,39 +490,42 @@ header nav {
     transform: rotate(360deg); } }
 
 #gallery {
-  background-color: #303847;
   display: none;
-  min-height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   bottom: 0;
-  width: 100%;
-  padding: 20px 20px;
-  margin: none;
-  overflow: scroll; }
+  background-color: #303847;
+  min-height: 100vh;
+  overflow: scroll;
+  margin: 0 auto; }
   #gallery .gallery-header {
-    text-align: center;
     color: #CFAC3F; }
     #gallery .gallery-header h1 {
       font-family: RevReg, serif;
       font-size: 80px;
-      margin: 20px auto; }
-    #gallery .gallery-header p {
-      cursor: pointer;
+      margin: 0 auto; }
+    #gallery .gallery-header h2 {
       font-family: RevOutline, serif;
-      font-size: 14px;
+      color: #CFCCD6;
+      font-style: italic;
+      margin: 0 10px;
+      font-size: 20px;
       letter-spacing: 2px; }
-      #gallery .gallery-header p:hover, #gallery .gallery-header p:focus {
-        font-family: RevReg, serif; }
+    #gallery .gallery-header div:not(#gallery-nav) {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
   #gallery .row {
     display: flex;
     flex-wrap: wrap;
-    padding: 0px 8px 50px 8px;
+    padding-bottom: 50px;
     margin: 0 auto; }
     #gallery .row .column {
       width: 48%;
-      padding: 0 4px; }
+      padding: 0 1%; }
       #gallery .row .column img {
         position: relative;
         top: 30px;
@@ -483,10 +533,10 @@ header nav {
         vertical-align: middle; }
 
 #gallery.open {
-  display: block;
-  z-index: 8; }
+  z-index: 999;
+  display: block; }
   #gallery.open .row .column img {
-    border: 0.2px solid #CFAC3F; }
+    border: 0.2px solid #CFCCD6; }
 
 @media (max-width: 530px) {
   header nav {
@@ -503,6 +553,8 @@ header nav {
     padding-top: calc(40vh - 50px); }
     section .content {
       height: 30%; }
+      section .content h2 {
+        width: 82px; }
   #gallery {
     width: unset; }
     #gallery .gallery-header h1 {

@@ -1,42 +1,70 @@
-const infoModal = document.getElementById('modal')
-const hamburgerMenu = document.getElementById('show-modal')
-const largeEye = document.getElementById('show-photos')
-const gallery = document.getElementById('gallery')
-const enter = document.getElementById('enter')
-const exit = document.getElementById('close-gallery')
+const infoModal = document.getElementById('modal'),
+    toggleModalButton = document.getElementById('show-modal'),
+    gallery = document.getElementById('gallery'),
+    largeEye = document.getElementById('main-eye'),
+    enterButton = document.getElementById('enter'),
+    enterButton2 = document.getElementById('enter-2')
+    enterText = document.getElementById('enter-text'),
+    closeGalleryButton = document.getElementById('close-gallery')
+    icons = document.querySelectorAll('.icon')
 
-let contactView = false
-let galleryView = false
+let contactView = false,
+    galleryView = false
 
-hamburgerMenu.onclick = function() {
-    infoModal.classList.toggle('open')
-    document.getElementById('hello').classList.toggle('open')
-    hamburgerMenu.classList.toggle('open')
-}
 
-largeEye.onclick = function() {
-    largeEye.classList.add('loading')
-    enter.style.fontFamily = 'RevReg, serif'
+function checkImageLoad() {
+    if (infoModal.classList.contains('open')) {
+        icons.forEach(i => i.classList.add('loading'))
+    } else {
+        largeEye.classList.add('loading')
+        enterText.style.fontFamily = 'RevReg, serif'
+    }
+
     let allImages = [].slice.call(document.getElementsByTagName('img'))
     let loadedImages = 0
-
+    
     allImages.forEach(img => {
         img = new Image()
         if (img.complete) loadedImages++ 
-        if (loadedImages == allImages.length) setTimeout(showImages, 1000)
+        if (loadedImages == allImages.length) setTimeout(showGallery, 1000)
     })
 }
 
-function showImages() {
-    largeEye.classList.add('hidden')
-    hamburgerMenu.classList.add('invisible')
-    gallery.classList.add('open')
+function closeModal() {
+    infoModal.classList.remove('open')
+    document.getElementById('hello').classList.remove('open')
+    toggleModalButton.classList.remove('open')
 }
 
-exit.onclick = function() {
-    enter.style.fontFamily = 'RevOutline, serif'
+function showGallery() {
+    largeEye.classList.add('hidden')
+    gallery.classList.add('open')
+    toggleModalButton.style.zIndex = 0
+    if (infoModal.classList.contains('open')) {
+        closeModal()
+    }
+}
+
+enterButton.onclick = function() {
+    checkImageLoad()
+}
+
+enterButton2.onclick = function() {
+    checkImageLoad()
+}
+
+toggleModalButton.onclick = function() {
+    infoModal.classList.toggle('open')
+    document.getElementById('hello').classList.toggle('open')
+    toggleModalButton.classList.toggle('open')
+}       
+
+closeGalleryButton.onclick = function() {
+    icons.forEach(i => i.classList.remove('loading'))
+    enterText.style.fontFamily = 'RevOutline, serif'
     largeEye.classList.remove('hidden', 'loading')
     gallery.classList.remove('open')
+    toggleModalButton.classList.remove('hidden')
 }
 
 
