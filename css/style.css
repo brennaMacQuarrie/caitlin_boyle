@@ -253,6 +253,8 @@ button {
   display: flex; }
   .flex.space-around {
     justify-content: space-around; }
+  .flex.justify-center {
+    justify-content: center; }
   .flex.space-between {
     justify-content: space-between; }
   .flex.align-center {
@@ -272,11 +274,20 @@ button {
   height: 15px;
   width: 15px;
   display: inline-block; }
-  .icon.loading {
+  .icon.spinner {
     animation: eyeroll 2s linear infinite;
     -webkit-animation: eyeroll 2s linear infinite;
-    -moz-animation: eyeroll 2s;
-    -o-: eyeroll 2s; }
+    -moz-animation: eyeroll 2s linear infinite;
+    -o-animation: eyeroll 2s linear infinite; }
+
+hr {
+  border: 0.5px solid #CFCCD6;
+  width: 45%;
+  margin: 30px 0 0 0;
+  transition: width 2s; }
+
+hr.animated {
+  width: 45%; }
 
 section {
   width: 100%;
@@ -329,8 +340,7 @@ header nav {
     font-family: RevReg, serif;
     font-size: calc(2vw + 20px);
     display: flex;
-    align-items: center;
-    line-height: 90%; }
+    align-items: center; }
   header nav div.place {
     width: 50px; }
 
@@ -347,7 +357,8 @@ header nav {
     top: 45%;
     left: 25%;
     width: 50%;
-    height: 2px;
+    height: 4px;
+    border-radius: 5px;
     position: absolute;
     background-color: #303847;
     transition: rotate 0.8s, background-color 0.5s, transform 0.8s; }
@@ -378,7 +389,7 @@ header nav {
 
 #gallery-nav {
   display: flex;
-  align-items: flex-start; }
+  justify-content: flex-end; }
   #gallery-nav .line {
     background-color: #CFAC3F; }
   #gallery-nav .line1 {
@@ -390,8 +401,8 @@ header nav {
     top: 45%;
     left: 25%;
     width: 50%; }
-  #gallery-nav:hover .line {
-    background-color: #997d29; }
+  #gallery-nav .contact:hover .line {
+    background-color: #eed58b; }
 
 #modal {
   width: 100vw;
@@ -409,7 +420,8 @@ header nav {
   transition: opacity 0.5s; }
   #modal .text {
     position: relative;
-    width: 480px;
+    max-width: 480px;
+    width: 60%;
     padding: 50px 50px 30px 50px;
     border-radius: 5px;
     border: 1px solid #CFAC3F; }
@@ -506,7 +518,7 @@ header nav {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #303847;
+  background-color: #14171e;
   min-height: 100vh;
   overflow: scroll;
   margin: 0 auto; }
@@ -514,7 +526,7 @@ header nav {
     color: #CFAC3F; }
     #gallery .gallery-header h1 {
       font-family: RevReg, serif;
-      font-size: 80px;
+      font-size: calc(2.5vw + 45px);
       margin: 0 auto;
       text-align: center; }
     #gallery .gallery-header h2 {
@@ -531,23 +543,23 @@ header nav {
       justify-content: center; }
   #gallery .row {
     display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 50px;
+    flex-wrap: nowrap;
+    padding: 100px 0;
     margin: 0 auto; }
     #gallery .row .column {
-      width: 48%;
-      padding: 0 1%; }
+      width: 50%;
+      padding: 0 5px; }
       #gallery .row .column img {
-        position: relative;
-        top: 30px;
+        transition: transform 0.6s;
         margin-bottom: 8px;
-        vertical-align: middle; }
+        vertical-align: middle;
+        border: 0.2px solid #CFCCD6; }
+        #gallery .row .column img.animated {
+          transform: translateY(-40px); }
 
 #gallery.open {
   z-index: 999;
   display: block; }
-  #gallery.open .row .column img {
-    border: 0.2px solid #CFCCD6; }
 
 @media (max-width: 530px) {
   header nav {
@@ -568,17 +580,21 @@ header nav {
         width: 82px; }
   #gallery {
     width: unset; }
+    #gallery .wrapper {
+      width: 90%; }
     #gallery .gallery-header h1 {
-      font-size: 25px; }
-    #gallery .row .column {
-      width: 100%;
-      padding: 0; }
-  #modal .text {
-    width: 75%;
-    padding: 40px 20px;
-    margin-top: 50px;
-    height: auto; }
-    #modal .text h3 {
-      font-size: 28px;
-      left: 50%;
-      transition: left 1s ease-in-out; } }
+      margin-top: 15px;
+      font-size: 30px; }
+    #gallery .gallery-header h2 {
+      font-size: 16px;
+      font-family: RevReg, serif; }
+    #gallery .row {
+      padding: 80px 0;
+      flex-wrap: wrap; }
+      #gallery .row .column {
+        width: 100%;
+        padding: 0; }
+  #modal .text h3 {
+    font-size: 28px;
+    left: 50%;
+    transition: left 1s ease-in-out; } }

@@ -8,7 +8,6 @@ header nav {
         font-size: calc(2vw + 20px);
         display: flex;
         align-items: center;
-        line-height: 90%;
     }
     div.place {width: 50px}
 }
@@ -27,7 +26,8 @@ header nav {
         top: 45%;
         left: 25%;
         width: 50%;
-        height: 2px;
+        height: 4px;
+        border-radius: 5px;
         position: absolute;
         background-color: $blue;
         transition: rotate 0.8s, background-color 0.5s, transform 0.8s;
@@ -69,8 +69,8 @@ header nav {
 
 #gallery-nav {
     display: flex;
-    align-items: flex-start;
-    .line {background-color: $gold}
+    justify-content: flex-end;
+    .line { background-color: $gold; }
     .line1 {
         transform: rotate(45deg);
         top: 45%;
@@ -82,7 +82,7 @@ header nav {
         left: 25%;
         width: 50%;
     }
-    &:hover { 
+    .contact:hover { 
         .line {
             background-color: $darkGold;
         }

@@ -3,31 +3,50 @@ const infoModal = document.getElementById('modal'),
     gallery = document.getElementById('gallery'),
     largeEye = document.getElementById('main-eye'),
     enterButton = document.getElementById('enter'),
-    enterButton2 = document.getElementById('enter-2')
+    enterButton2 = document.getElementById('enter-2'),
     enterText = document.getElementById('enter-text'),
-    closeGalleryButton = document.getElementById('close-gallery')
-    icons = document.querySelectorAll('.icon')
-
+    closeGalleryButton = document.getElementById('close-gallery'),
+    allImages = [].slice.call(document.getElementsByTagName('img'))
+    
 let contactView = false,
     galleryView = false
 
 
+
 function checkImageLoad() {
-    if (infoModal.classList.contains('open')) {
-        icons.forEach(i => i.classList.add('loading'))
-    } else {
-        largeEye.classList.add('loading')
-        enterText.style.fontFamily = 'RevReg, serif'
-    }
+    largeEye.classList.add('loading')
+    enterText.style.fontFamily = 'RevReg, serif'
     
-    let allImages = [].slice.call(document.getElementsByTagName('img'))
     let loadedImages = 0
     
     allImages.forEach(img => {
         img = new Image()
         if (img.complete) loadedImages++ 
-        if (loadedImages == allImages.length) setTimeout(showGallery, 1000)
+        if (loadedImages == allImages.length) showGallery()
     })
+}
+
+function showGallery() {
+    largeEye.classList.add('hidden')
+    gallery.classList.add('open')
+    toggleModalButton.style.zIndex = "0"
+
+    // lines = [].slice.call(document.getElementsByTagName('hr'))
+    // lines.forEach(line => line.classList.add('animated'))
+
+    if (infoModal.classList.contains('open')) closeModal()
+
+    for (let i = 0; i < allImages.length; i++) {
+        let toggleAnimate = moveImg(i)
+        setTimeout(toggleAnimate, i * 250)
+    }
+}
+
+function moveImg(i) {
+    let img = allImages[i]
+    return function() {
+        img.classList.add('animated')
+    }
 }
 
 function closeModal() {
@@ -36,14 +55,6 @@ function closeModal() {
     toggleModalButton.classList.remove('open')
 }
 
-function showGallery() {
-    largeEye.classList.add('hidden')
-    gallery.classList.add('open')
-    toggleModalButton.style.zIndex = "0"
-    if (infoModal.classList.contains('open')) {
-        closeModal()
-    }
-}
 
 enterButton.onclick = function() {
     checkImageLoad()
@@ -60,13 +71,19 @@ toggleModalButton.onclick = function() {
 }       
 
 closeGalleryButton.onclick = function() {
-    icons.forEach(i => i.classList.remove('loading'))
+    // reset
     enterText.style.fontFamily = 'RevOutline, serif'
+    // reset zindex
     largeEye.classList.remove('hidden', 'loading')
+    // hide
     gallery.classList.remove('open')
+    // bring to front
     toggleModalButton.classList.remove('hidden')
     toggleModalButton.style.zIndex = "999"
 
+    allImages.forEach(img => {
+        img.classList.remove('animated')
+    })
 }
 
 

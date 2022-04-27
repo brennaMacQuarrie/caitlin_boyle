@@ -22,11 +22,17 @@
         }
     }
     #gallery {
+        .wrapper { width: 90%; }
         width: unset;
         .gallery-header {
-            h1 {font-size: 25px;}
+            h1 {margin-top: 15px; font-size: 30px; }
+            h2 { font-size: 16px; font-family: RevReg, serif;}
         }
-        .row .column { width: 100%;  padding: 0; }
+        .row {
+            padding: 80px 0;
+            flex-wrap: wrap;
+            .column { width: 100%;  padding: 0; }
+        }
         
     }
     #modal .text {
@@ -35,9 +41,5 @@
             left: 50%;
             transition: left 1s ease-in-out; 
         }
-        width: 75%;
-        padding: 40px 20px;
-        margin-top: 50px;
-        height: auto;
     }
 }

@@ -14,7 +14,8 @@
     transition: opacity 0.5s;
     .text {
         position: relative;
-        width: 480px;
+        max-width: 480px;
+        width: 60%;
         padding: 50px 50px 30px 50px;
         border-radius: 5px;
         border: 1px solid $gold;

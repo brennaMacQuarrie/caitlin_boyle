@@ -28,7 +28,7 @@ main {
 $blue: #303847;
 $darkBlue: #14171e;
 $gold: #CFAC3F;
-$darkGold: #997d29;
+$darkGold: #eed58b;
 $grey: #CFCCD6;
 
 @font-face {
@@ -103,6 +103,7 @@ button {
 .flex {
     display: flex;
     &.space-around {justify-content: space-around;}
+    &.justify-center {justify-content: center;}
     &.space-between {justify-content: space-between;}
     &.align-center {align-items: center;}
     &.reverse {flex-direction: row-reverse;}
@@ -118,10 +119,18 @@ button {
     height: 15px;
     width: 15px;
     display: inline-block;
-    &.loading {
+    &.spinner {
         animation: eyeroll 2s linear infinite;
         -webkit-animation: eyeroll 2s linear infinite;
-        -moz-animation:    eyeroll 2s; 
-        -o-:      eyeroll 2s; 
+        -moz-animation:    eyeroll 2s linear infinite; 
+        -o-animation:      eyeroll 2s linear infinite; 
     }
 }
+
+hr { 
+    border: 0.5px solid $grey; 
+    width: 45%; 
+    margin: 30px 0 0 0; 
+    transition: width 2s;
+}
+hr.animated { width: 45% }
