@@ -12,28 +12,19 @@
             margin: 5px auto;
         }
     }
-    section {
-        padding-top: calc(40vh - 50px);
-        .content {
-            height: 30%;
-            h2 {
-                width: 82px;
-            }
-        }
-    }
+    #enter h2#enter-text { width: 85px; }
     #gallery {
-        .wrapper { width: 90%; }
-        width: unset;
         .gallery-header {
-            h1 {margin-top: 15px; font-size: 30px; }
+            h1 {margin-top: 15px; font-size: 40px; }
             h2 { font-size: 16px; font-family: RevReg, serif;}
         }
         .row {
-            padding: 80px 0;
+            padding: 80px 20px 20px;
             flex-wrap: wrap;
-            .column { width: 100%;  padding: 0; }
+            .column { width: 100%;  padding: 0; 
+                img { margin-bottom: 12px; }
+            }
         }
-        
     }
     #modal .text {
         h3 { 
