@@ -33,7 +33,7 @@ function showGallery() {
     toggleModalButton.style.zIndex = "0"
 
     if (infoModal.classList.contains('open')) closeModal()
-    setTimeout(expandLines, 700)
+    setTimeout(expandLines, 500)
 
     for (let i = 0; i < allImages.length; i++) {
         let toggleAnimate = moveImg(i)
