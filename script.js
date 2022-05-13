@@ -7,7 +7,8 @@ const infoModal = document.getElementById('modal'),
     enterText = document.getElementById('enter-text'),
     closeGalleryButton = document.getElementById('close-gallery'),
     allImages = [].slice.call(document.getElementsByTagName('img'))
-    
+    lines = [].slice.call(document.getElementsByTagName('hr'))
+
 let contactView = false,
     galleryView = false
 
@@ -31,15 +32,19 @@ function showGallery() {
     gallery.classList.add('open')
     toggleModalButton.style.zIndex = "0"
 
-    // lines = [].slice.call(document.getElementsByTagName('hr'))
-    // lines.forEach(line => line.classList.add('animated'))
-
     if (infoModal.classList.contains('open')) closeModal()
+    setTimeout(expandLines, 700)
 
     for (let i = 0; i < allImages.length; i++) {
         let toggleAnimate = moveImg(i)
         setTimeout(toggleAnimate, i * 250)
     }
+}
+
+function expandLines() {
+    lines.forEach(line => {
+        line.classList.add('animated')
+    })
 }
 
 function moveImg(i) {
@@ -80,7 +85,9 @@ closeGalleryButton.onclick = function() {
     // bring to front
     toggleModalButton.classList.remove('hidden')
     toggleModalButton.style.zIndex = "999"
-
+    lines.forEach(line => {
+        line.classList.remove('animated')
+    })
     allImages.forEach(img => {
         img.classList.remove('animated')
     })

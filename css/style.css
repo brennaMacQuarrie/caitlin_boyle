@@ -282,12 +282,11 @@ button {
 
 hr {
   border: 0.5px solid #CFCCD6;
-  width: 45%;
   margin: 30px 0 0 0;
-  transition: width 2s; }
-
-hr.animated {
-  width: 45%; }
+  width: 0;
+  transition: width 2.5s ease-in-out; }
+  hr.animated {
+    width: 45%; }
 
 section {
   width: 100%;
@@ -544,7 +543,7 @@ header nav {
   #gallery .row {
     display: flex;
     flex-wrap: nowrap;
-    padding: 100px 0;
+    padding: 100px 0 50px;
     margin: 0 auto; }
     #gallery .row .column {
       width: 50%;
@@ -594,4 +593,4 @@ header nav {
     #modal .text h3 {
       font-size: 28px;
       left: 50%;
-      transition: left 1s ease-in-out; } }
+      transition: left 0.8s ease-in-out; } }
